@@ -3,6 +3,5 @@
 class Promotion
 {
 public:
-
     void promote();
 };

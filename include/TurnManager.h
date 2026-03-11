@@ -3,15 +3,13 @@
 class TurnManager
 {
 
-private:
-
-    bool whiteTurn;
+	bool whiteTurn;
 
 public:
 
-    TurnManager();
+	TurnManager();
 
-    void switchTurn();
+	void switchTurn();
 
-    bool isWhiteTurn();
+	bool isWhiteTurn();
 };

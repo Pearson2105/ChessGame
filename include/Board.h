@@ -5,19 +5,22 @@
 
 class Board
 {
-
-private:
-
-    sf::Texture boardTexture;
-    sf::Sprite boardSprite;
-
 public:
-
     std::vector<Piece*> pieces;
 
     Board();
+    ~Board();
+
+    Piece* getPieceAt(int x, int y);
 
     void draw(sf::RenderWindow& window);
 
-    void setupPieces();
+private:
+    sf::Texture whiteSquareTexture;
+    sf::Texture greenSquareTexture;
+
+    sf::Sprite whiteSquare;
+    sf::Sprite greenSquare;
+
+    void loadPieces();
 };

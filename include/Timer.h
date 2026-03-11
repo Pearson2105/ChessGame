@@ -1,16 +1,16 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
-class Timer
-{
-
+class Timer {
 private:
-
-    float whiteTime;
-    float blackTime;
+    float whiteTime = 600.f;
+    float blackTime = 600.f;
+    sf::Font font;
+    sf::Text whiteText;
+    sf::Text blackText;
 
 public:
-
     Timer();
-
-    void update(bool whiteTurn);
+    void update(bool whiteTurn, float dt);
+    void draw(sf::RenderWindow& window);
 };

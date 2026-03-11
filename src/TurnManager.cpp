@@ -2,15 +2,15 @@
 
 TurnManager::TurnManager()
 {
-    whiteTurn = true;
+	whiteTurn = true;
 }
 
 void TurnManager::switchTurn()
 {
-    whiteTurn = !whiteTurn;
+	whiteTurn = !whiteTurn;
 }
 
 bool TurnManager::isWhiteTurn()
 {
-    return whiteTurn;
+	return whiteTurn;
 }
