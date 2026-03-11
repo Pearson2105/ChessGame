@@ -1,20 +1,30 @@
-#include <SFML/Graphics.hpp>
+#include "../include/Piece.h"
+#include <iostream>
 
-int main() {
-    sf::RenderWindow window(sf::VideoMode({ 200, 200 }), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+Piece::Piece(bool w, std::string path, int x, int y)
+{
+    white = w;
+    boardPos = { x, y };
 
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-        window.clear();
-        window.draw(shape);
-        window.display();
+    if (!texture.loadFromFile(path))
+    {
+        std::cout << "ERROR loading: " << path << std::endl;
     }
-    return 0;
+
+    sprite.setTexture(texture);
+
+    sprite.setPosition(x * 100.f, y * 100.f);
+
+    if (texture.getSize().x > 0 && texture.getSize().y > 0)
+    {
+        sprite.setScale(
+            100.f / texture.getSize().x,
+            100.f / texture.getSize().y
+        );
+    }
+}
+
+void Piece::draw(sf::RenderWindow& window)
+{
+    window.draw(sprite);
 }

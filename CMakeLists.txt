@@ -16,6 +16,15 @@ set(SFML_INCS "lib/SFML/include")
 link_directories("${CMAKE_BINARY_DIR}/lib/SFML/lib")
 
 #### Chess /game ####
-add_executable(Chess main.cpp)
+add_executable(Chess 
+src/main.cpp
+src/Game.cpp
+src/Board.cpp
+src/Piece.cpp
+src/TurnManager.cpp
+src/Timer.cpp
+src/Promotion.cpp
+src/MoveValidator.cpp
+src/HighlightSystem.cpp)
 target_include_directories(Chess PRIVATE ${SFML_INCS})
 target_link_libraries(Chess sfml-graphics)
